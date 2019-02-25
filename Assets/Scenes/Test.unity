@@ -1145,13 +1145,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 114298151824708420, guid: 10b8600c4ff50c341ae68e662b3b07df,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: Wine
       value: 
       objectReference: {fileID: 627782825}
-    - target: {fileID: 114298151824708420, guid: 10b8600c4ff50c341ae68e662b3b07df,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: score
       value: 
       objectReference: {fileID: 627782827}
@@ -1167,7 +1165,9 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 23.354431
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114652243208272936, guid: 10b8600c4ff50c341ae68e662b3b07df, type: 2}
+    - {fileID: 54475448600815372, guid: 10b8600c4ff50c341ae68e662b3b07df, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 10b8600c4ff50c341ae68e662b3b07df, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &655664236
@@ -1216,6 +1216,23 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd37710168998084581f9da132b3b04c, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &721296052 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1984375814842096, guid: 0bd3cefbef4fc754aa8dffdd52377731,
+    type: 2}
+  m_PrefabInternal: {fileID: 1131405350}
+--- !u!114 &721296053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 721296052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e192c0c5d215a1e4da9d4cf5eb49da34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: {fileID: 1244706737}
 --- !u!1001 &724867672
 Prefab:
   m_ObjectHideFlags: 0
@@ -1483,13 +1500,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 21
       objectReference: {fileID: 0}
-    - target: {fileID: 114298151824708420, guid: 10b8600c4ff50c341ae68e662b3b07df,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: Wine
       value: 
       objectReference: {fileID: 627782825}
-    - target: {fileID: 114298151824708420, guid: 10b8600c4ff50c341ae68e662b3b07df,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: score
       value: 
       objectReference: {fileID: 627782827}
@@ -1509,7 +1524,9 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 24.388632
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114652243208272936, guid: 10b8600c4ff50c341ae68e662b3b07df, type: 2}
+    - {fileID: 54475448600815372, guid: 10b8600c4ff50c341ae68e662b3b07df, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 10b8600c4ff50c341ae68e662b3b07df, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &835170098
@@ -1572,6 +1589,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 114511005920981620, guid: 29523307b91eb2240a88781d8fb4911b,
     type: 2}
+  spawnOnStart: 1
 --- !u!1001 &871516900
 Prefab:
   m_ObjectHideFlags: 0
@@ -1853,6 +1871,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 114913481066012606, guid: 9da5f8ca2d6ec6b438736ebed55ad455,
     type: 2}
+  spawnOnStart: 1
 --- !u!4 &967231368 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4706660881261008, guid: fd37710168998084581f9da132b3b04c,
@@ -2137,8 +2156,7 @@ Prefab:
       propertyPath: m_Name
       value: Bottle (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 114298151824708420, guid: 10b8600c4ff50c341ae68e662b3b07df,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: score
       value: 
       objectReference: {fileID: 627782827}
@@ -2154,7 +2172,9 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 22.970545
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114652243208272936, guid: 10b8600c4ff50c341ae68e662b3b07df, type: 2}
+    - {fileID: 54475448600815372, guid: 10b8600c4ff50c341ae68e662b3b07df, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 10b8600c4ff50c341ae68e662b3b07df, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &1131405350
@@ -2196,7 +2216,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114476218431443444, guid: 0bd3cefbef4fc754aa8dffdd52377731, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 0bd3cefbef4fc754aa8dffdd52377731, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &1173025152
@@ -2508,11 +2529,45 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55ca28cb64a57374db135a9e755614a9, type: 3}
   m_IsPrefabAsset: 0
+--- !u!114 &1244706737 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114445708790999332, guid: 0bd3cefbef4fc754aa8dffdd52377731,
+    type: 2}
+  m_PrefabInternal: {fileID: 1131405350}
+  m_Script: {fileID: 11500000, guid: ec2e98fb60ea70f48a917a7cc46c7eb9, type: 3}
 --- !u!4 &1250553962 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4706660881261008, guid: fd37710168998084581f9da132b3b04c,
     type: 2}
   m_PrefabInternal: {fileID: 550439634}
+--- !u!1 &1261945522
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1261945523}
+  m_Layer: 0
+  m_Name: BottleSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1261945523
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1261945522}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.55, y: 1.26, z: -0.18}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1764353489}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1284084118 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4706660881261008, guid: fd37710168998084581f9da132b3b04c,
@@ -2982,7 +3037,8 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 206.64813
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 65813912865018044, guid: 72c27da6e00121c449d73c576b5db86f, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 72c27da6e00121c449d73c576b5db86f, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &1632440116
@@ -3470,8 +3526,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1764353489}
-  - component: {fileID: 1764353488}
   - component: {fileID: 1764353490}
+  - component: {fileID: 1764353492}
+  - component: {fileID: 1764353491}
+  - component: {fileID: 1764353488}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Untagged
@@ -3490,13 +3548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66eeff30fa4c0354999817708171a5ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pC: {fileID: 1006851029}
-  Spawn: {fileID: 1813998273}
-  Bottle: {fileID: 1813998273}
-  TimeRemaining: 45
   timer: {fileID: 239860387}
-  Yeast: 1
-  SGrape: 1
 --- !u!4 &1764353489
 Transform:
   m_ObjectHideFlags: 0
@@ -3508,6 +3560,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 553815786}
+  - {fileID: 1261945523}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -84.199005, z: 0}
@@ -3521,8 +3574,34 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 2.751735}
-  m_Center: {x: 7.0208594e-10, y: 0.37999642, z: 0.7608669}
+  m_Size: {x: 4.4380803, y: 2.2861004, z: 2.4591076}
+  m_Center: {x: -1.4681064, y: 0.23419845, z: -0.00029539544}
+--- !u!114 &1764353491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1764353487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648aa069f798d604eb7869c07213109e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  surface: {fileID: 1261945523}
+--- !u!114 &1764353492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1764353487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e88cd41235ac8314ea059ef917c69c75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPrefab: {fileID: 114652243208272936, guid: 10b8600c4ff50c341ae68e662b3b07df,
+    type: 2}
+  spawnOnStart: 0
 --- !u!4 &1796027015 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4706660881261008, guid: fd37710168998084581f9da132b3b04c,
@@ -3623,11 +3702,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &1813998273 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1697985764876582, guid: 10b8600c4ff50c341ae68e662b3b07df,
-    type: 2}
-  m_PrefabInternal: {fileID: 650992615}
 --- !u!1 &1836579121
 GameObject:
   m_ObjectHideFlags: 0

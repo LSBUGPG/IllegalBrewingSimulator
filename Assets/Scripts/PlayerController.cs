@@ -43,6 +43,21 @@ public class PlayerController : MonoBehaviour
 				}
 			}
 		}
+
+		if (touching != null)
+		{
+			GrapePress grapePress = touching.GetComponent<GrapePress>();
+			if (grapePress != null)
+			{
+				grapePress.Operate(Input.GetButton("Action"));
+			}
+
+			Barrel barrel = touching.GetComponent<Barrel>();
+			if (barrel != null)
+			{
+				barrel.Operate(Input.GetButton("Action"));
+			}
+		}
 	}
 
 	void UnityInputMovement()

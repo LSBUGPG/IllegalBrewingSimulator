@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnItem : MonoBehaviour
 {
 	public Pickable itemPrefab;
+	public bool spawnOnStart;
 	Worktop worktop;
 
 	void Awake()
@@ -14,7 +15,10 @@ public class SpawnItem : MonoBehaviour
 
 	void Start()
 	{
-		Spawn();
+		if (spawnOnStart)
+		{
+			Spawn();
+		}
 	}
 
 	public void Spawn()

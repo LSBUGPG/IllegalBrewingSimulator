@@ -93,8 +93,9 @@ GameObject:
   - component: {fileID: 23679223829234206}
   - component: {fileID: 65717235570675620}
   - component: {fileID: 65769035954675138}
-  - component: {fileID: 114761885102932862}
   - component: {fileID: 114598606498270860}
+  - component: {fileID: 114668962113215214}
+  - component: {fileID: 114476218431443444}
   m_Layer: 0
   m_Name: grapepress
   m_TagString: WorkTop
@@ -270,6 +271,20 @@ MonoBehaviour:
   ImageCooldown: {fileID: 114491817820482966}
   cooldown: 5
   operating: 0
+--- !u!114 &114476218431443444
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1984375814842096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b83295b6d4036542b571e15cd21838d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: {fileID: 114445708790999332}
+  inputPrefab: {fileID: 114511005920981620, guid: 29523307b91eb2240a88781d8fb4911b,
+    type: 2}
 --- !u!114 &114491817820482966
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -309,6 +324,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   surface: {fileID: 4276441036755066}
+--- !u!114 &114668962113215214
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1984375814842096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e88cd41235ac8314ea059ef917c69c75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPrefab: {fileID: 114716162505903564, guid: 5601393e88f5d9d49ba1d0a019343384,
+    type: 2}
+  spawnOnStart: 0
 --- !u!114 &114739900711047844
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -320,22 +349,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f750b1a631eeb5140bac617aa009617b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114761885102932862
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1984375814842096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e192c0c5d215a1e4da9d4cf5eb49da34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pC: {fileID: 0}
-  GrapeSquished: {fileID: 0}
-  GrapepressTimer: {fileID: 0}
-  TimeRemaining: 30
-  timer: {fileID: 114445708790999332}
 --- !u!114 &114965671472746708
 MonoBehaviour:
   m_ObjectHideFlags: 1

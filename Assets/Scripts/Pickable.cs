@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class Pickable : MonoBehaviour
 {
 	internal SpawnItem creator;
@@ -30,6 +32,15 @@ public class Pickable : MonoBehaviour
 		return null;
 	}
 
+	public void Respawn()
+	{
+		if (creator.spawnOnStart)
+		{
+			creator.Spawn();
+		}
+		Destroy(gameObject);
+	}
+
 	public bool Attached()
 	{
 		return transform.parent != null;
@@ -39,8 +50,7 @@ public class Pickable : MonoBehaviour
     {
         if(other.CompareTag("Floor"))
         {
-			creator.Spawn();
-            Destroy(gameObject);
+			Respawn();
         }
 	}
 }

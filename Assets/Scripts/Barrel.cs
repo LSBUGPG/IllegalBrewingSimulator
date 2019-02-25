@@ -3,69 +3,54 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Barrel : MonoBehaviour {
-	public PlayerController pC;
-	public GameObject Spawn;
-	public GameObject Bottle;
-	//public Countdown barrelTimer;
-	public int TimeRemaining = 45;
+[RequireComponent(typeof(Worktop))]
+[RequireComponent(typeof(SpawnItem))]
+public class Barrel : MonoBehaviour
+{
 	public coolDown timer;
-	public bool Yeast;
-	public bool SGrape;
+	bool hasYeast;
+	bool hasSquashedGrapes;
+	SpawnItem bottleSpawner;
+	Worktop worktop;
 
-	// Use this for initialization
-	void Start () {
-		pC = GameObject.Find ("PlayerMove").GetComponent<PlayerController> ();
-		Bottle = (GameObject)Resources.Load ("Bottle", typeof(GameObject));	
-		Spawn = this.gameObject;
+	void Start()
+	{
+		bottleSpawner = GetComponent<SpawnItem>();
+		worktop = GetComponent<Worktop>();
+		worktop.onPlaceItem.AddListener((item) => TakeItem(item));
+	}
+
+	void TakeItem(Pickable pickup)
+	{
+		if (pickup.CompareTag("SGrape"))
+		{
+			hasSquashedGrapes  = true;
+		}
+
+		if (pickup.CompareTag("Yeast"))
+		{
+			hasYeast = true;
+		}
+
+		if (!pickup.CompareTag("Bottle"))
+		{
+			worktop.Take();
+			pickup.Respawn();
+		}
 	}
 	
-	// Update is called once per frame
-	void Update () {
-    //    text = "Timer: " + TimeRemaining;
-	}
-	void OnTriggerStay(Collider other){
-
-/*
-		if (other.gameObject.tag == "SGrape" && pC.pickedUp == false) {
-			Debug.LogFormat ("dropped {0}", other.gameObject.tag);
-		Destroy (other.gameObject);
-			SGrape = true;
-		}
-		if (other.gameObject.tag == "Yeast" && pC.pickedUp == false) {
-			Destroy (other.gameObject);
-			Debug.Log ("Drop yeast");
-			Yeast = true;
-		}
-		if (Yeast == true && SGrape == true) {
-            if (other.gameObject.CompareTag("Player"))
-            {
-                timer.operating = Input.GetKey(KeyCode.Q);
-                if (timer.IsFinished())
-                {
-                    Yeast = false;
-                    SGrape = false;
-                    Spawn = Instantiate(Bottle);
-                    Spawn.transform.parent = transform;
-                    Spawn.transform.localPosition = new Vector3(-0.061f, 1.37f, 0.596f);
-                    timer.Reset();
-                }
-            }
-		}
-		*/
-	}
-	IEnumerator Blend () {
-		//barrelTimer.enabled = true;
-
-		for (int i = 0; i < TimeRemaining; i++)
+	public void Operate(bool activate)
+	{
+		if (hasYeast && hasSquashedGrapes)
 		{
-			yield return new WaitForSeconds (1.0f); // change number for cook time
-	//		TimeRemaining --;
-	//		Timer.text = "Timer: " + TimeRemaining;
-			if (TimeRemaining == 0) {
-				break;
+			timer.operating = activate;
+			if (timer.IsFinished())
+			{
+				bottleSpawner.Spawn();
+				timer.Reset();
+				hasYeast = false;
+				hasSquashedGrapes = false;
 			}
-			//print("...");
 		}
 	}
 }
