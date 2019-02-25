@@ -2,18 +2,27 @@
 using System.Collections;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Worktop))]
 public class DestroyBottle : MonoBehaviour
 {
-	public Text Wine;
+	public Score Wine;
+	Worktop worktop;
 	int count;
 
-	void OnTriggerEnter (Collider col)
+	void Awake()
 	{
-		/*print ("bottled");
-		if(col.gameObject.tag == "Bottle")
+		worktop = GetComponent<Worktop>();
+		worktop.onPlaceItem.AddListener((item) => Score(item));
+	}
+
+	void Score(Pickable item)
+	{
+		if (item.CompareTag("Bottle"))
 		{
-			Destroy(col.gameObject);
 			count++;
-		}*/
+			Wine.count = count;
+		}
+		worktop.Take();
+		item.Respawn();
 	}
 }
