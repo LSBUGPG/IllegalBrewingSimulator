@@ -9,7 +9,6 @@ public class PickUp : MonoBehaviour {
 	public PlayerController pC;
 	public Score score;
     public SpawnItem creator;
-	bool holding = false;
 	public bool IsBottle = false;
 
 
@@ -19,13 +18,14 @@ public class PickUp : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (pC.pickedUp == true && holding) {
+		/*if (pC.pickedUp == true && holding) {
 			transform.localPosition = new Vector3 (0, 0, 1);
-		}
+		}*/
 	}
 
 	void OnTriggerStay(Collider other){
 		//print ("ppp");
+		/*
 		if (other.gameObject.tag == "Player" && pC.pick == true) {
 			print ("PlayerIn " + gameObject.tag);
 			holding = true;
@@ -62,5 +62,6 @@ public class PickUp : MonoBehaviour {
 			pC.pickedUp = null;
 			//transform.localPosition = new Vector3 (0,0.65f,0);
 		}
+		*/
 	}
 }

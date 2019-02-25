@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-	private Rigidbody rb;
+	public Transform hand;
 	public int speed;
 	public int sprint;
-	public bool pick;
-	public PickUp pickedUp = null;
-	public bool drop;
-	public GameObject Player;
+	Pickable pickedUp = null;
+	Worktop touching = null;
+	Rigidbody rb;
 
 	void Start()
 	{
@@ -21,21 +20,28 @@ public class PlayerController : MonoBehaviour
 	{
 		UnityInputMovement();
 
-		if (Input.GetKeyDown(KeyCode.E))
+		if (Input.GetButtonDown("Pickup"))
 		{
-			if (pickedUp == true)
+			if (pickedUp != null)
 			{
-				drop = true;
+				if (touching != null)
+				{
+					touching.AddItem(pickedUp);
+				}
+				else
+				{
+					pickedUp.Drop();
+				}
+				pickedUp = null;
 			}
-			else
+			else if (touching != null)
 			{
-				pick = true;
+				pickedUp = touching.Take();
+				if (pickedUp != null)
+				{
+					pickedUp.Attach(hand);
+				}
 			}
-		}
-		else
-		{
-			drop = false;
-			pick = false;
 		}
 	}
 
@@ -63,5 +69,23 @@ public class PlayerController : MonoBehaviour
 		}
 
 		rb.velocity = movement * (float)speed;
+	}
+
+	void OnTriggerEnter(Collider other)
+	{
+		Worktop worktop = other.GetComponent<Worktop>();
+		if (worktop != null)
+		{
+			touching = worktop;
+		}
+	}
+
+	void OnTriggerExit(Collider other)
+	{
+		Worktop worktop = other.GetComponent<Worktop>();
+		if (worktop != null && touching == worktop)
+		{
+			touching = null;
+		}
 	}
 }

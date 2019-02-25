@@ -4,25 +4,23 @@ using UnityEngine;
 
 public class SpawnItem : MonoBehaviour
 {
-    public GameObject itemPrefab;
+	public Pickable itemPrefab;
+	Worktop worktop;
 
-    GameObject grapes;
+	void Awake()
+	{
+		worktop = GetComponent<Worktop>();
+	}
 
-    void Start()
-    {
-        Spawn();
-    }
+	void Start()
+	{
+		Spawn();
+	}
 
-    public void Update()
-    {
-        if(grapes == null)
-        {
-            Spawn();
-        }
-    }
-
-    public void Spawn()
-    {
-        grapes = Instantiate(itemPrefab, transform.position, transform.rotation);
-    }
+	public void Spawn()
+	{
+		Pickable pickup = Instantiate(itemPrefab, transform.position, transform.rotation);
+		pickup.creator = this;
+		worktop.AddItem(pickup);
+	}
 }

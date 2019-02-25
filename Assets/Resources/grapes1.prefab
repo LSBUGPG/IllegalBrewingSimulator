@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23107898130724556}
   - component: {fileID: 54465970670079626}
   - component: {fileID: 135043901963976384}
-  - component: {fileID: 114146768582220636}
+  - component: {fileID: 114511005920981620}
   m_Layer: 0
   m_Name: grapes1
   m_TagString: Grape
@@ -103,7 +103,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &114146768582220636
+--- !u!114 &114511005920981620
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1969930889534886}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00c94df95d793a641876d3275656e1d1, type: 3}
+  m_Script: {fileID: 11500000, guid: b14c59a6595b91848a7eee482c33ae26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!135 &135043901963976384
@@ -124,5 +124,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.05
+  m_Radius: 0.02
   m_Center: {x: 0.0005983624, y: 0.02, z: 0.00006417606}

@@ -23,8 +23,7 @@ GameObject:
   - component: {fileID: 23897700442302916}
   - component: {fileID: 65797098268193470}
   - component: {fileID: 54817476057241782}
-  - component: {fileID: 114857391751588894}
-  - component: {fileID: 114964529766061404}
+  - component: {fileID: 114913481066012606}
   m_Layer: 0
   m_Name: Yeast
   m_TagString: Yeast
@@ -114,7 +113,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.019468213, y: 0.08830902, z: 0.015700422}
   m_Center: {x: -0.0013513977, y: 0.0386888, z: -0.0008583729}
---- !u!114 &114857391751588894
+--- !u!114 &114913481066012606
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,21 +121,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1897788410057906}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e967b6b8e2868fb4d99d318865526684, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pC: {fileID: 0}
-  score: {fileID: 0}
-  creator: {fileID: 0}
-  IsBottle: 0
---- !u!114 &114964529766061404
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1897788410057906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a034e2f039a0c744ac344aa6ba94e90, type: 3}
+  m_Script: {fileID: 11500000, guid: b14c59a6595b91848a7eee482c33ae26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

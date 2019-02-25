@@ -4,59 +4,43 @@ using UnityEngine;
 
 public class Pickable : MonoBehaviour
 {
-    public GameObject item;
-    public GameObject tempParent;
-    public Transform guide;
-    bool carrying;
+	internal SpawnItem creator;
+	Rigidbody rb;
 
-    // Use this for initialization
-    void Start()
-    {
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        if (carrying == false)
-        {
-            if (Input.GetKeyDown(KeyCode.JoystickButton0))
-            {
-                pickup();
-                carrying = true;
-            }
-        }
-        else if (carrying == true)
-        {
-            if (Input.GetKeyDown(KeyCode.JoystickButton0))
-            {
-                drop();
-                carrying = false;
-            }
-        }
-    }
-    void pickup()
-    {
-        Debug.Log("PickedUp");
-        item.GetComponent<Rigidbody>().useGravity = false;
-        item.GetComponent<Rigidbody>().isKinematic = true;
-        item.transform.position = guide.transform.position;
-        item.transform.rotation = guide.transform.rotation;
-        item.transform.parent = tempParent.transform;
-    }
-    void drop()
-    {
-        Debug.Log("Dropped");
-        item.GetComponent<Rigidbody>().useGravity = true;
-        item.GetComponent<Rigidbody>().isKinematic = false;
-        item.transform.parent = null;
-        //item.transform.position = guide.transform.position;
-    }
+	void Awake()
+	{
+		rb = GetComponent<Rigidbody>();
+	}
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Grape")
-        {
-            item = other.gameObject;
-        }
-    }
+	public Pickable Attach(Transform location)
+	{
+		rb.useGravity = false;
+		rb.isKinematic = true;
+		transform.position = location.transform.position;
+		transform.rotation = location.transform.rotation;
+		transform.SetParent(location.transform, true);
+		return this;
+	}
 
+	public Pickable Drop()
+	{
+		rb.useGravity = true;
+		rb.isKinematic = false;
+		transform.parent = null;
+		return null;
+	}
+
+	public bool Attached()
+	{
+		return transform.parent != null;
+	}
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Floor"))
+        {
+			creator.Spawn();
+            Destroy(gameObject);
+        }
+	}
 }

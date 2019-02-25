@@ -26,6 +26,7 @@ public class Barrel : MonoBehaviour {
 	}
 	void OnTriggerStay(Collider other){
 
+/*
 		if (other.gameObject.tag == "SGrape" && pC.pickedUp == false) {
 			Debug.LogFormat ("dropped {0}", other.gameObject.tag);
 		Destroy (other.gameObject);
@@ -51,6 +52,7 @@ public class Barrel : MonoBehaviour {
                 }
             }
 		}
+		*/
 	}
 	IEnumerator Blend () {
 		//barrelTimer.enabled = true;
