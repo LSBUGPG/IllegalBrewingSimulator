@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
-
+public class PlayerController : MonoBehaviour
+{
 	private Rigidbody rb;
 	public int speed;
 	public int sprint;
@@ -11,82 +11,57 @@ public class PlayerController : MonoBehaviour {
 	public PickUp pickedUp = null;
 	public bool drop;
 	public GameObject Player;
-   
 
-	void Start ()
+	void Start()
 	{
 		rb = GetComponent<Rigidbody>();
 	}
 
-	void Update ()
+	void Update()
 	{
-        ArrowKeyMovement();
-        UnityInputMovement();
+		UnityInputMovement();
 
-        print(Input.GetAxis("Horizontal") + "---" + (Input.GetAxis("Vertical")));
-
-		Player.transform.localPosition = new Vector3 (0, 0, 0);
-		if (Input.GetKeyDown (KeyCode.E)) {
-			if (pickedUp == true) {
+		if (Input.GetKeyDown(KeyCode.E))
+		{
+			if (pickedUp == true)
+			{
 				drop = true;
-			} else {
+			}
+			else
+			{
 				pick = true;
 			}
-		} else {
+		}
+		else
+		{
 			drop = false;
 			pick = false;
 		}
 	}
-	//	void Update () {
-			//float mouseInput = Input.GetAxis("Mouse X");
-			//Vector3 lookhere = new Vector3(0,mouseInput,0);
-		//	transform.Rotate(lookhere);
-		//}
-    void ArrowKeyMovement()
-    {
-        if (Input.GetKey(KeyCode.A))
-        {
-            //rb.AddForce(transform.forward * speed);
-            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, speed);
-            Player.transform.eulerAngles = new Vector3(0, 90, 0);
-        }
-        if (Input.GetKey(KeyCode.W))
-        {
-            rb.velocity = new Vector3(speed, rb.velocity.y, rb.velocity.z);
-            Player.transform.eulerAngles = new Vector3(0, 180, 0);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            //rb.AddForce(transform.right * -speed);
-            rb.velocity = new Vector3(-speed, rb.velocity.y, rb.velocity.z);
-            Player.transform.eulerAngles = new Vector3(0, 0, 0);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            //rb.AddForce(transform.forward * -speed);
-            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, -speed);
-            Player.transform.eulerAngles = new Vector3(0, 270, 0);
-        }
-        if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.S))
-        {
-            rb.velocity = Vector3.zero;
-        }
-    }
 
-    void UnityInputMovement()
-    {
-        float moveX = Input.GetAxis("Horizontal");
-        float moveY = Input.GetAxis("Vertical");
+	void UnityInputMovement()
+	{
+		Vector3 forward = Vector3.forward;
+		Vector3 right = Vector3.right;
 
-        Vector3 movement = (Vector3.forward * moveX) + (Vector3.right * moveY);
+		Camera camera = Camera.main;
+		if (camera != null)
+		{
+			forward = Vector3.Cross(camera.transform.right, Vector3.up).normalized;
+			right = Vector3.Cross(Vector3.up, forward).normalized;
+		}
 
-        movement.x = Mathf.Clamp(movement.x, -1f, 1f);
-        movement.z = Mathf.Clamp(movement.z, -1f, 1f);
+		float moveX = Input.GetAxis("Horizontal");
+		float moveY = Input.GetAxis("Vertical");
 
-        Vector2 direction = new Vector2(movement.x, movement.z);
-        float angle = Vector2.SignedAngle(Vector2.right, direction);
-        transform.rotation = Quaternion.Euler(0.0f, -angle, 0.0f);
+		Vector3 movement = (forward * moveY) + (right * moveX);
+		Vector2 direction = new Vector2(movement.x, movement.z);
+		if (direction.SqrMagnitude() > 0.0f)
+		{
+			float angle = Vector2.SignedAngle(Vector2.right, direction);
+			transform.rotation = Quaternion.Euler(0.0f, 180f - angle, 0.0f);
+		}
 
-        rb.velocity = new Vector3(movement.x * -speed, rb.velocity.y, movement.z * -speed);
-    }
+		rb.velocity = movement * (float)speed;
+	}
 }
