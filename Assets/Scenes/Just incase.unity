@@ -5745,7 +5745,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88cd41235ac8314ea059ef917c69c75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 1969930889534886, guid: 29523307b91eb2240a88781d8fb4911b, type: 2}
+  itemPrefab: {fileID: 0}
+  spawnOnStart: 0
 --- !u!4 &414102047
 Transform:
   m_ObjectHideFlags: 0
@@ -6448,7 +6449,6 @@ GameObject:
   - component: {fileID: 774432604}
   - component: {fileID: 774432603}
   - component: {fileID: 774432602}
-  - component: {fileID: 774432600}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -6456,22 +6456,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!54 &774432600
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 54306501292528146, guid: 9b697a61a0afbec478b1385de0861b2c,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 774432599}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0.09
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!23 &774432602
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11676,7 +11660,6 @@ GameObject:
   - component: {fileID: 1006851031}
   - component: {fileID: 1006851033}
   - component: {fileID: 1006851032}
-  - component: {fileID: 1006851035}
   - component: {fileID: 1006851034}
   - component: {fileID: 1006851036}
   m_Layer: 0
@@ -11697,12 +11680,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7f74417c3ee54144b60137dbde82b29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hand: {fileID: 0}
   speed: 8
   sprint: 10
-  pick: 0
-  pickedUp: {fileID: 0}
-  drop: 0
-  Player: {fileID: 774432599}
 --- !u!4 &1006851030
 Transform:
   m_ObjectHideFlags: 0
@@ -11769,22 +11749,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b14c59a6595b91848a7eee482c33ae26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 414102045}
-  tempParent: {fileID: 1006851028}
-  guide: {fileID: 10396714}
---- !u!114 &1006851035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1006851028}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8c80403c02d1e74aa79baa16fa0fe09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 10
-  physics: {fileID: 1006851031}
 --- !u!135 &1006851036
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -11931,7 +11895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29ca10f1589cbaf48820c22c0e1e3cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Wine: {fileID: 627782825}
+  Wine: {fileID: 0}
 --- !u!1 &1085293734
 GameObject:
   m_ObjectHideFlags: 0
@@ -17844,7 +17808,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88cd41235ac8314ea059ef917c69c75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 1897788410057906, guid: 9da5f8ca2d6ec6b438736ebed55ad455, type: 2}
+  itemPrefab: {fileID: 0}
+  spawnOnStart: 0
 --- !u!4 &1721306307
 Transform:
   m_ObjectHideFlags: 0
@@ -18185,13 +18150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66eeff30fa4c0354999817708171a5ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pC: {fileID: 1006851029}
-  Spawn: {fileID: 1813998273}
-  Bottle: {fileID: 1813998273}
-  TimeRemaining: 45
   timer: {fileID: 239860387}
-  Yeast: 1
-  SGrape: 1
 --- !u!4 &1764353489
 Transform:
   m_ObjectHideFlags: 0
@@ -18318,11 +18277,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &1813998273 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1697985764876582, guid: 10b8600c4ff50c341ae68e662b3b07df,
-    type: 2}
-  m_PrefabInternal: {fileID: 650992615}
 --- !u!1 &1816349914
 GameObject:
   m_ObjectHideFlags: 0
